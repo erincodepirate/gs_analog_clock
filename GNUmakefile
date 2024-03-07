@@ -17,8 +17,8 @@ endif
 include $(GNUSTEP_MAKEFILES)/common.make
 
 APP_NAME = AnClock
-AnClock_HEADERS = Controller.h TimeView.h
-AnClock_OBJC_FILES = main.m Controller.m TimeView.m
+AnClock_HEADERS = Controller.h TimeView.h ClockView.h
+AnClock_OBJC_FILES = main.m Controller.m TimeView.m ClockView.m
 AnClock_RESOURCE_FILES = AnClockInfo.plist AnClock.gorm
 AnClock_MAIN_MODEL_FILE = AnClock.gorm
 

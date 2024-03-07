@@ -20,6 +20,11 @@
     [box setTitlePosition: NSAtTop];
     [box setTitle: @"Local Time"];
 
+    self->clockView = [
+        [ClockView alloc]
+        initWithFrame: NSMakeRect(0, 70, frame.size.width, frame.size.height)
+    ];
+
     self->labelDate = [
         [NSTextField alloc]
         initWithFrame: NSMakeRect(10,45,35,20)
@@ -49,10 +54,12 @@
         initWithFrame: NSMakeRect(55,15,130,20)
     ];
 
+    [box addSubview: self->clockView];
     [box addSubview: self->labelDate];
     [box addSubview: self->labelTime];
     [box addSubview: self->localDate];
     [box addSubview: self->localTime];
+    [self->clockView release];
     [self->labelDate release];
     [self->labelTime release];
     [self->localDate release];
@@ -74,6 +81,7 @@
     [self->localDate setStringValue: [self->date description]];
     [self->date setCalendarFormat: @"%H : %M : %S"];
     [self->localTime setStringValue: [self->date description]];
+    [self->clockView setDate: self->date];
 }
 
 - (void) dealloc {
